@@ -19,4 +19,15 @@ $ qprof -f myquery.sql
 
 That command also issues a message containing the transaction id and the statement id of the query just submitted. `qprof` captures txn-id and stmt-id, and uses them, once the query is run, to query `execution_engine_profiles` and several other monitoring tables, to generate an extensive text output file (`qprof.out` by default) that can then be used to investigate in detail what actually happened during the query's execution.
 
+Install it by copying the executable `qprof-0-5.sh` (or any later version in this repository) onto a Linux workstation with the Vertica client stack - especially with Vertica's `vsql` standard client. Or, if circumstances allow, directly on a Vertica node. Make sure you have an entry in your `$PATH` variable that points to the directory in which the executable resides.
+Then, set the following environment variables:
+```
+export VSQL_HOST=sbx1
+export VSQL_PORT=5433
+export VSQL_DATABASE=sbx
+export VSQL_USER=dbadmin
+export VSQL_PASSWORD=pwd
+```
+To keep the invoking command stable across versions, create a symbolic link `qprof` in the same directory as `qprof-?.*.sh` pointing to the newest version.
+.. and you should be set.
 
