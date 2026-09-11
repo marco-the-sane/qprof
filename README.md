@@ -31,3 +31,4 @@ export VSQL_PASSWORD=pwd
 To keep the invoking command stable across versions, create a symbolic link `qprof` in the same directory as `qprof-?.*.sh` pointing to the newest version.
 .. and you should be set.
 
+The included `splitsprof.pl` script can be used to extract the data from a selected query step into a csv, a bar delimited or a tab delimited text file - depending on the formatting of the step's extracted data. The most popular use case is `$ splitsprof.pl -step=17 > profile.txt` to extract all `execution_engine_profiles` data pertaining to the current `transaction_id`/`statement_id` combination.  
